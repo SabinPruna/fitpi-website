@@ -1,13 +1,90 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face {
+    font-family: "Seville-Regular";
+    src: url("../Content/Font/Seville-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Seville-Bold";
+    src: url("../Content/Font/Seville-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Seville-Book";
+    src: url("../Content/Font/Seville-Book.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*---------------------------START HELPERS----------------------------*/
+.mr-20 {
+    margin-right: 20px;
+}
+
+.ml-40 {
+    margin-left: 40px;
+}
+
+.ml-50 {
+    margin-left: 50px;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
+.ml-70 {
+    margin-left: 70px;
+}
+
+.ml-80 {
+    margin-left: 80px;
+}
+
+.ml-90 {
+    margin-left: 90px;
+}
+
+
+.mr-85 {
+    margin-right: 85px;
+}
+
+.mr-100 {
+    margin-left: 100px;
+}
+
+.w-15 {
+    width: 15% !important;
+    margin-left: 120px;
+}
+
+/*---------------------------END HELPERS----------------------------*/
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Seville-Bold';
+    background-image: linear-gradient(to bottom, #0584a8, #00759c, #00678f, #005982, #004b75, #00416d, #003765, #002d5d, #002458, #001a53, #00104d, #000046);
+    /*background: #466368;
+    background: -webkit-linear-gradient(#648880, #293f50);
+    background:    -moz-linear-gradient(#648880, #293f50);
+    background:         linear-gradient(#648880, #293f50);*/
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
+
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -22,3 +99,91 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*------------------------START NAVBAR--------------------------*/
+
+.bg-navy {
+    background-color: #001f3f !important;
+}
+
+.fitpi-logo {
+    max-width: 160px;
+    width: 300px !important;
+}
+
+.nav-link {
+    font-size: 27px;
+}
+
+.left-navbar {
+    width: 25% !important;
+}
+
+.left-navbar-nav {
+    padding-left: 128px;
+}
+
+.nav-border-bottom {
+    border-bottom: 10px solid #001f3f;
+}
+
+.nav-item {
+    padding-top: 15px;
+}
+
+.activities-nav-hover:hover {
+    color: aqua !important;
+    border-bottom: 10px solid aqua;
+}
+
+.nutrition-nav-hover:hover {
+    color: #00A629 !important;
+    border-bottom: 10px solid #00A629;
+}
+
+.budget-nav-hover:hover {
+    color: #F80070 !important;
+    border-bottom: 10px solid #F80070;
+}
+
+.timetable-nav-hover:hover {
+    color: #14D3F5 !important;
+    border-bottom: 10px solid #14D3F5;
+}
+
+.worklog-nav-hover:hover {
+    color: #3182DE !important;
+    border-bottom: 10px solid #3182DE;
+}
+
+.weather-nav-hover:hover {
+    color: #FFCC33 !important;
+    border-bottom: 10px solid #FFCC33;
+}
+
+.navbar-brand {
+    position: relative !important;
+    margin-left: 190px !important;
+}
+
+/*--------------------------END NAVBAR--------------------------*/
+
+
+/*----------------------START PARTIALS--------------------------------*/
+
+.partial-header {
+    text-align: center;
+    font-size: 60px;
+    padding-top: 300px;
+}
+
+/*----------------------END PARTIALS--------------------------------*/
+
+
+/*----------------------START CAROUSEL--------------------------------*/
+
+.carousel-control-next, .carousel-control-prev {
+    width: 5% !important;
+}
+
+/*----------------------END CAROUSEL--------------------------------*/
