@@ -1,169 +1,145 @@
 ﻿@font-face {
     font-family: "Seville-Regular";
-    src: url("../Content/Font/Seville-Regular.ttf") format("truetype");
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
+    src: url("../Content/Font/Seville-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Seville-Bold";
-    src: url("../Content/Font/Seville-Bold.ttf") format("truetype");
-    font-weight: bold;
     font-style: normal;
+    font-weight: bold;
+    src: url("../Content/Font/Seville-Bold.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Seville-Book";
-    src: url("../Content/Font/Seville-Book.ttf") format("truetype");
-    font-weight: bold;
     font-style: normal;
+    font-weight: bold;
+    src: url("../Content/Font/Seville-Book.ttf") format("truetype");
 }
 
 /*---------------------------START HELPERS----------------------------*/
-.mr-20 {
-    margin-right: 20px;
-}
 
-.ml-40 {
-    margin-left: 40px;
-}
+.mr-20 { margin-right: 20px; }
 
-.ml-50 {
-    margin-left: 50px;
-}
+.ml-40 { margin-left: 40px; }
 
-.mr-50 {
-    margin-right: 50px;
-}
+.ml-50 { margin-left: 50px; }
 
-.ml-70 {
-    margin-left: 70px;
-}
+.mr-50 { margin-right: 50px; }
 
-.ml-80 {
-    margin-left: 80px;
-}
+.ml-70 { margin-left: 70px; }
 
-.ml-90 {
-    margin-left: 90px;
-}
+.ml-80 { margin-left: 80px; }
+
+.ml-90 { margin-left: 90px; }
 
 
-.mr-85 {
-    margin-right: 85px;
-}
+.mr-85 { margin-right: 85px; }
 
-.mr-100 {
-    margin-left: 100px;
-}
+.mr-100 { margin-left: 100px; }
+
+.mb-80 { margin-bottom: 80px; }
+
+.mb-100 { margin-bottom: 100px; }
 
 .w-15 {
-    width: 15% !important;
     margin-left: 120px;
+    width: 15% !important;
 }
+
+.w-40-card { width: 40% !important; }
 
 /*---------------------------END HELPERS----------------------------*/
 
-html {
-    height: 100%;
-}
+html { height: 100%; }
 
 body {
-    font-family: 'Seville-Bold';
     background-image: linear-gradient(to bottom, #0584a8, #00759c, #00678f, #005982, #004b75, #00416d, #003765, #002d5d, #002458, #001a53, #00104d, #000046);
     /*background: #466368;
     background: -webkit-linear-gradient(#648880, #293f50);
     background:    -moz-linear-gradient(#648880, #293f50);
     background:         linear-gradient(#648880, #293f50);*/
     color: white;
+    font-family: 'Seville-Bold';
+    overflow: hidden;
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 30px;
-    padding-right: 30px;
-}
+
+/*.body-content {
+
+}*/
 
 
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
-    white-space: normal;
-}
+
+.dl-horizontal dt { white-space: normal; }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
-textarea {
-    max-width: 280px;
-}
+textarea { max-width: 280px; }
+
+.chart-background { background: linear-gradient(#1e1e2f, #1e1e24); }
 
 /*------------------------START NAVBAR--------------------------*/
 
-.bg-navy {
-    background-color: #001f3f !important;
-}
+.bg-navy { background-color: #001f3f !important; }
 
 .fitpi-logo {
     max-width: 160px;
     width: 300px !important;
 }
 
-.nav-link {
-    font-size: 27px;
-}
+.nav-link { font-size: 27px; }
 
-.left-navbar {
-    width: 25% !important;
-}
+.left-navbar { width: 25% !important; }
 
-.left-navbar-nav {
-    padding-left: 128px;
-}
+.left-navbar-nav { padding-left: 128px; }
 
-.nav-border-bottom {
-    border-bottom: 10px solid #001f3f;
-}
+.nav-border-bottom { border-bottom: 10px solid #001f3f; }
 
-.nav-item {
-    padding-top: 15px;
-}
+.nav-item { padding-top: 15px; }
 
 .activities-nav-hover:hover {
-    color: aqua !important;
     border-bottom: 10px solid aqua;
+    color: aqua !important;
 }
 
 .nutrition-nav-hover:hover {
-    color: #00A629 !important;
     border-bottom: 10px solid #00A629;
+    color: #00A629 !important;
 }
 
 .budget-nav-hover:hover {
-    color: #F80070 !important;
     border-bottom: 10px solid #F80070;
+    color: #F80070 !important;
 }
 
 .timetable-nav-hover:hover {
-    color: #14D3F5 !important;
     border-bottom: 10px solid #14D3F5;
+    color: #14D3F5 !important;
 }
 
 .worklog-nav-hover:hover {
-    color: #3182DE !important;
     border-bottom: 10px solid #3182DE;
+    color: #3182DE !important;
 }
 
 .weather-nav-hover:hover {
-    color: #FFCC33 !important;
     border-bottom: 10px solid #FFCC33;
+    color: #FFCC33 !important;
 }
 
 .navbar-brand {
-    position: relative !important;
     margin-left: 190px !important;
+    position: relative !important;
 }
 
 /*--------------------------END NAVBAR--------------------------*/
@@ -172,9 +148,9 @@ textarea {
 /*----------------------START PARTIALS--------------------------------*/
 
 .partial-header {
-    text-align: center;
     font-size: 60px;
     padding-top: 300px;
+    text-align: center;
 }
 
 /*----------------------END PARTIALS--------------------------------*/
@@ -182,8 +158,271 @@ textarea {
 
 /*----------------------START CAROUSEL--------------------------------*/
 
-.carousel-control-next, .carousel-control-prev {
-    width: 5% !important;
-}
+.carousel-control-next, .carousel-control-prev { width: 2% !important; }
 
 /*----------------------END CAROUSEL--------------------------------*/
+
+/*-------------------FITBIT SLIDE----------------------------------*/
+
+.btn-extra-large {
+    font-family: "Seville-Bold";
+    font-size: 2rem;
+}
+
+.card {
+    border-radius: 50px;
+    width: 33%;
+}
+
+.progress { height: 2.5em; }
+
+.form-fitbit {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+}
+
+.form-control {
+    font-family: 'Seville-Bold';
+    font-size: 1.75rem;
+    text-align: right;
+}
+
+.form-header { font-size: 27px; }
+
+.progress-bar { font-size: 33px; }
+
+.calories-control { color: orange; }
+
+.calories-control:focus { border-color: orange; }
+
+.calories-control-progress { background-color: orange; }
+
+.minutes-control { color: #151591; }
+
+.minutes-control:focus { border-color: #151591; }
+
+.minutes-control-progress { background-color: #151591; }
+
+.distance-control { color: blue; }
+
+.distance-control:focus { border-color: blue; }
+
+.distance-control-progress { background-color: blue; }
+
+.sleep-control { color: blueviolet; }
+
+.sleep-control:focus { border-color: blueviolet; }
+
+.sleep-control-progress { background-color: blueviolet; }
+
+.floors-control { color: chocolate; }
+
+.floors-control:focus { border-color: chocolate; }
+
+.floors-control-progress { background-color: chocolate; }
+
+.weight-control { color: crimson; }
+
+.weight-control:focus { border-color: crimson; }
+
+.weight-control-progress { background-color: crimson; }
+
+.steps-control { color: green; }
+
+.steps-control:focus { border-color: green; }
+
+.steps-control-progress { background-color: green; }
+
+.heartRate-control { color: red; }
+
+.heartRate-control:focus { border-color: red; }
+
+.heartRate-control-progress { background-color: red; }
+
+.fz-22 { font-size: 2.2rem; }
+.fz-11 {
+    font-size: 1.1rem;
+}
+
+.datepicker { color: white !important; }
+
+
+
+/*-------------------------------------------------------------------*/
+
+
+/*--------------------------CALORIES-------------------------------*/
+
+.table-calories, .table-distance, .table-steps, .table-sleep, .table-heartRate, .table-floors, .table-weight { background: linear-gradient(#1e1e2f, #1e1e24); }
+
+.scrollable-calories-table, .scrollable-minutes-table, .scrollable-steps-table, .scrollable-distance-table, .scrollable-floors-table, .scrollable-heartRate-table, .scrollable-weight-table {
+    height: 30%;
+    overflow: auto;
+    position: relative;
+}
+
+.table-wrapper-scroll-y { display: block; }
+
+.scrollable-calories-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-calories-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-calories-table::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-minutes-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-minutes-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-minutes-table::-webkit-scrollbar-thumb {
+    background-color: #151591;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-steps-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-steps-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-steps-table::-webkit-scrollbar-thumb {
+    background-color: green;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-distance-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-distance-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-distance-table::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-sleep-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-sleep-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-sleep-table::-webkit-scrollbar-thumb {
+    background-color: blueviolet;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-weight-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-weight-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-weight-table::-webkit-scrollbar-thumb {
+    background-color: crimson;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-floors-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-floors-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-floors-table::-webkit-scrollbar-thumb {
+    background-color: chocolate;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.scrollable-heartRate-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.scrollable-heartRate-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+
+.scrollable-heartRate-table::-webkit-scrollbar-thumb {
+    background-color: red;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+th, td { padding: 3em; }
+
+.chart-btn {
+    bottom: 60px;
+    left: 200px;
+    position: fixed;
+}
+
+
+/*-------------------------------------------------------------------*/

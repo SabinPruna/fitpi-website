@@ -1,0 +1,47 @@
+﻿@using FP.Models.Fitbit
+@model List<FP.Models.Fitbit.HeartRateModel>
+
+@{
+    ViewBag.Title = "Fitpi - HR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/heartRateChart.js")"></script>
+}
+
+@using (Html.BeginForm("HeartRate", "Fitbit", FormMethod.Post, new { @class = "form-heartRate" }))
+{
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-heartRate-table">
+                <table class="table table-heartRate">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="height: 40px">
+                            <td>
+                                @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new { @class = "fz-22" })
+                                @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => Model[i].Summary.RestingHeartRate, Model[i].Summary.RestingHeartRate.ToString(), new { @class = "form-control heart-rate-control pull-right" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="width: 1200px; height: 700px">
+                <canvas id="heartRateChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+
+}

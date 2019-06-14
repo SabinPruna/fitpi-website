@@ -1,0 +1,47 @@
+﻿@using FP.Models.Fitbit
+@model List<FP.Models.Fitbit.ActiveMinutesModel>
+
+@{
+    ViewBag.Title = "Fitpi - Calories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/minutesChart.js")"></script>
+}
+
+@using (Html.BeginForm("ActiveMinutes", "Fitbit", FormMethod.Post, new { @class = "form-minutes" }))
+{
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-minutes-table">
+                <table class="table table-calories">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="height: 40px">
+                            <td>
+                                @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new { @class = "fz-22" })
+                                @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => Model[i].Summary.LightlyActiveMinutes, Model[i].Summary.LightlyActiveMinutes.ToString(), new { @class = "form-control minutes-control pull-right" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="width: 1200px; height: 700px">
+                <canvas id="minutesChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+
+}

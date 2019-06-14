@@ -20,13 +20,20 @@ namespace FP
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/jquery-ui-1.12.1.js",
+                      "~/Scripts/bootstrap-datepicker.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/boostrap.css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-datepicker.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/site.css").Include(
+                "~/Content/site.css"));
+
             bundles.Add(new StyleBundle("~/bundles/carouselScript").Include(
+                "~/Content/DarkTheme/asserts/js/plugins/chartjs.min.js",
                 "~/Scripts/modules/FitpiCarousel.js"));
         }
     }

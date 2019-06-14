@@ -1,0 +1,48 @@
+﻿@using FP.Models.Fitbit
+@model List<FP.Models.Fitbit.WeigthModel>
+
+@{
+    ViewBag.Title = "Fitpi - Weight";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/weightChart.js")"></script>
+}
+
+@using (Html.BeginForm("Weight", "Fitbit", FormMethod.Post, new { @class = "form-calories" }))
+{
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-weight-table">
+                <table class="table table-weight">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="height: 40px">
+                            <td>
+                                @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new { @class = "fz-22" })
+                                @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model[i].Weight, Model[i].Weight)
+                                @Html.TextBoxFor(m => Model[i].StartWeight, Model[i].StartWeight.ToString(), new {@class = "form-control weight-control pull-right"})
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="width: 1200px; height: 700px">
+                <canvas id="weightChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+
+}

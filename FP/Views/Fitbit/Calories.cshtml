@@ -1,0 +1,64 @@
+﻿@using FP.Models.Fitbit
+@model List<FP.Models.Fitbit.CaloriesModel>
+
+@{
+    ViewBag.Title = "Fitpi - Calories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/caloriesChart.js")"></script>
+}
+
+@using (Html.BeginForm("Calories", "Fitbit", FormMethod.Post, new {@class = "form-calories"}))
+{
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-calories-table">
+                <table class="table table-calories">
+                   @for (int i=0;i <Model.Count; i++)
+                   {
+                       <tr style="height: 40px">
+                           <td>
+                               @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new { @class = "fz-22" })
+                               @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                           </td>
+                           <td>
+                               @Html.TextBoxFor(m => Model[i].Summary.CaloriesOut, Model[i].Summary.CaloriesOut.ToString(), new {@class = "form-control calories-control pull-right"})
+                           </td>
+                       </tr>
+                    }
+                    
+                    
+                    
+
+                    @*@foreach (CaloriesModel item in Model)
+                    {
+                        <tr style="height: 40px">
+
+                            <td>
+                                @Html.LabelFor(modelItem => item.Date, item.Date, new {@class = "fz-22"})
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => item.Summary.CaloriesOut, item.Summary.CaloriesOut.ToString(), new {@class = "form-control calories-control pull-right"})
+                            </td>
+                        </tr>
+                    }*@
+
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="width: 1200px; height: 700px">
+                <canvas id="caloriesChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+
+}

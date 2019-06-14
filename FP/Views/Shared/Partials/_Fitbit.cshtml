@@ -1,1 +1,176 @@
-﻿<h2 class="partial-header">DISPLAY FITBIT DATA HERE</h2>
+﻿@model FP.Models.Fitbit.StatsModel
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "form-fitbit"}))
+{
+    <div class="row justify-content-between mb-100">
+        <div class="card w-40-card">
+            <div class="card-body">
+                <a href="@Url.Action("Calories", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1">
+                            @Html.TextBoxFor(m => m.Summary.CaloriesOut, Model.Summary.CaloriesOut.ToString(), new {@class = "form-control calories-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 calories-control">/ @Model.Goals.CaloriesOut Calories</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active calories-control-progress" role="progressbar"
+                             aria-valuenow="@Model.Summary.CaloriesOut" aria-valuemin="0" aria-valuemax="@Model.Goals.CaloriesOut" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="card w-15 ml-0">
+            <div class="card-body">
+                <div class="">
+                    <div class=" pb-3">
+                        <div class="ml-2 pt-3 pr-1">
+                            @Html.TextBoxFor(m => m.Date, new {@class = "form-control fz-22 dp datepicker", Value = Model.Date})
+                        </div>
+                        <div class="text-hide date-for-datepicker">@Model.Date</div>
+                        <div class="text-hide url-for-datepicker">@Url.Action("Index", "Home")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card w-40-card ">
+            <div class="card-body">
+                <a href="@Url.Action("ActiveMinutes", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5 ">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.Summary.LightlyActiveMinutes, Model.Summary.LightlyActiveMinutes.ToString(), new {@class = "form-control minutes-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 minutes-control">/ @Model.Goals.ActiveMinutes Active minutes</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active minutes-control-progress" role="progressbar"
+                             aria-valuenow="@Model.Summary.LightlyActiveMinutes" aria-valuemin="0" aria-valuemax="@Model.Goals.ActiveMinutes" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between mb-100">
+        <div class="card">
+            <div class="card-body">
+                <a href="@Url.Action("Distance", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.Summary.Distances[0].DistanceDistance, Model.Summary.Distances[0].DistanceDistance.ToString(), new {@class = "form-control distance-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 distance-control">/ @Model.Goals.Distance Km</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active distance-control-progress" role="progressbar"
+                             aria-valuenow="@Model.Summary.Distances[0].DistanceDistance" aria-valuemin="0" aria-valuemax="@Model.Goals.Distance" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        @*<canvas id="stepsChart" width="200" height="200"></canvas>*@
+        <div class="card">
+            <div class="card-body">
+                <a href="@Url.Action("Steps", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.Summary.Steps, Model.Summary.Steps.ToString(), new {@class = "form-control steps-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 steps-control">/ @Model.Goals.Steps Steps</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active steps-control-progress" role="progressbar"
+                             aria-valuenow="@Model.Summary.Steps" aria-valuemin="0" aria-valuemax="@Model.Goals.Steps" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <a href="@Url.Action("Sleep", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.SleepMinutes, Model.SleepMinutes.ToString(), new {@class = "form-control sleep-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 sleep-control">/ @Model.SleepGoalMinutes Sleept minutes</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active sleep-control-progress" role="progressbar"
+                             aria-valuenow="@Model.SleepMinutes" aria-valuemin="0" aria-valuemax="@Model.SleepGoalMinutes" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="card w-40-card ">
+            <div class="card-body">
+                <a href="@Url.Action("Floors", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.Summary.Floors, Model.Summary.Floors.ToString(), new {@class = "form-control floors-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 floors-control">/ @Model.Goals.Floors Floors</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active floors-control-progress" role="progressbar"
+                             aria-valuenow="@Model.Summary.Floors" aria-valuemin="0" aria-valuemax="@Model.Goals.Floors" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="card w-40-card">
+            <div class="card-body">
+                <a href="@Url.Action("Weight", "Fitbit")" class="fitbit-link">
+                    <div class="row pb-3 justify-content-center ml-5">
+                        <div class="col-3 ml-2 pr-1 ">
+                            @Html.TextBoxFor(m => m.StartWeight, Model.StartWeight.ToString(), new {@class = "form-control weight-control"})
+                        </div>
+                        <div class="col-6 form-header pl-0 weight-control">aiming for @Model.Weight Kg</div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active weight-control-progress" role="progressbar"
+                             aria-valuenow="@Model.StartWeight" aria-valuemin="0" aria-valuemax="@Model.Weight" style="width: 40%">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large">Save</button>
+        </div>
+
+        <div class="col-2">
+            <button class="btn btn-info btn-extra-large twitter-fitbit">Tweet</button>
+        </div>
+
+        <div class="col-2 offset-4">
+            @Html.ActionLink("HR", "HeartRate", "Fitbit", null, new { @class = "btn btn-danger btn-extra-large" })
+            @*<button id="tweet-fitbit-button" class="btn btn-danger btn-extra-large">HR</button>*@
+        </div>
+
+        <div class="col-2">
+            <button class="btn btn-danger btn-extra-large">Activities</button>
+        </div>
+
+
+    </div>
+}

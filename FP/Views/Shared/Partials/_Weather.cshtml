@@ -1,3 +1,105 @@
-﻿
+﻿@using System.Globalization
+@model FP.ViewModels.WeatherViewModel
 
-<h2 class="partial-header">DISPLAY WEAATHER DATA HERE</h2>
+@{
+    ViewBag.Title = "Fitpi - Weather";
+    string skyStatus = string.Empty;
+    if (@Model.ForecastWeather.WeatherListData[0].Weather[0].Main == "Clouds")
+    {
+        skyStatus = " heavy clouds";
+    }
+    else if(@Model.ForecastWeather.WeatherListData[0].Weather[0].Main == "Clear")
+    {
+        skyStatus = "a clear sky";
+    }
+    else
+    {
+        skyStatus = "chances of light rain";
+    }
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card w-100 mt-3">
+            <div class="card-body fz-22 text-center">
+                There are <div style="color: orange; display: inline">@Model.RoomWeathers[0].Temperature°C</div> in your room with <div style="color: orange;display: inline">@Model.RoomWeathers[0].Humidity%</div> humidity
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card w-100 mt-3">
+            <div class="card-body fz-22 text-center">
+                There are <div style="color: orange; display: inline">@Model.ForecastWeather.WeatherListData[0].Main.Temp°C</div> in Brasov with <div style="color: orange;display: inline">@skyStatus</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row pt-3">
+    <div class="col-6">
+        <div class="table-wrapper-scroll-y scrollable-calories-table" style="height: 25%;">
+            <table class="table table-calories">
+                <thead>
+                <tr style="color: orange; font-size: 15px">
+                    <th style="color: orange; font-size: 20px">Date</th>
+                    <th style="color: orange; font-size: 20px">Temperature</th>
+                    <th style="color: orange; font-size: 20px">Humidty</th>
+                </tr>
+                </thead>
+
+                @for (int i = 0; i < Model.RoomWeathers.Count; i++)
+                {
+                    <tr style="height: 40px">
+                        <td>
+                            @Html.LabelFor(modelItem => Model.RoomWeathers[i].Date, Model.RoomWeathers[i].Date, new {@class = "fz-11"})
+                            @Html.HiddenFor(modelItem => Model.RoomWeathers[i].Date, Model.RoomWeathers[i].Date)
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => Model.RoomWeathers[i].Temperature, Model.RoomWeathers[i].Temperature +"°C", new {@class = "fz-11"})
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => Model.RoomWeathers[i].Humidity, Model.RoomWeathers[i].Humidity +"%", new {@class = "fz-11"})
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="table-wrapper-scroll-y scrollable-calories-table" style="height: 25%;">
+            <table class="table table-calories">
+                <thead>
+                    <tr style="color: orange; font-size: 15px">
+                        <th style="color: orange; font-size: 20px">Date</th>
+                        <th style="color: orange; font-size: 20px">Sky</th>
+                        <th style="color: orange; font-size: 20px">Temperature</th>
+                        <th style="color: orange; font-size: 20px">Humidty</th>
+                    </tr>
+                </thead>
+                
+
+                @for (int i = 0; i < Model.ForecastWeather.WeatherListData.Count; i++)
+                {
+                    <tr style="height: 40px">
+                        <td>
+                            @Html.LabelFor(modelItem => Model.ForecastWeather.WeatherListData[i].DtTxt, Model.ForecastWeather.WeatherListData[i].DtTxt, new {@class = "fz-11"})
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => Model.ForecastWeather.WeatherListData[i].Weather[0].Main, Model.ForecastWeather.WeatherListData[i].Weather[0].Main, new {@class = "fz-11"})
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => Model.ForecastWeather.WeatherListData[i].Main.Temp, Model.ForecastWeather.WeatherListData[i].Main.Temp.ToString(CultureInfo.InvariantCulture) + "°C", new {@class = "fz-11"})
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => Model.ForecastWeather.WeatherListData[i].Main.Humidity, Model.ForecastWeather.WeatherListData[i].Main.Humidity.ToString(CultureInfo.InvariantCulture) + "%", new {@class = "fz-11"})
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+</div>

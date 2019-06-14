@@ -1,0 +1,51 @@
+﻿@using FP.Models.Fitbit
+@model List<FP.Models.Fitbit.DistanceModel>
+
+@{
+    ViewBag.Title = "Fitpi - Distance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/distanceChart.js")"></script>
+}
+
+@using (Html.BeginForm("Distance", "Fitbit", FormMethod.Post, new { @class = "form-distance" }))
+{
+
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-distance-table">
+                <table class="table table-distance">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="height: 40px">
+                            <td>
+                                @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new { @class = "fz-22" })
+                                @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model[i].Summary, Model[i].Summary)
+                                @Html.HiddenFor(modelItem => Model[i].Summary.Distances, Model[i].Summary.Distances)
+                                @Html.HiddenFor(modelItem => Model[i].Summary.Distances[0], Model[i].Summary.Distances[0])
+                                @Html.HiddenFor(modelItem => Model[i].Summary.Distances[0].DistanceDistance, Model[i].Summary.Distances[0].DistanceDistance)
+                                @Html.TextBoxFor(m => Model[i].Summary.Distances[0].DistanceDistance, Model[i].Summary.Distances[0].DistanceDistance.ToString(), new { @class = "form-control distance-control pull-right" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="width: 1200px; height: 700px">
+                <canvas id="distanceChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+
+}

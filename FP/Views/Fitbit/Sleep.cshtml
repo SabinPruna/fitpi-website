@@ -1,0 +1,44 @@
+﻿@model List<FP.Models.Fitbit.SleepModel>
+
+@{
+    ViewBag.Title = "Fitpi - Distances";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/modules/sleepChart.js")"></script>
+}
+
+@using (Html.BeginForm("Sleep", "Fitbit", FormMethod.Post, new {@class = "form-distance"}))
+{
+    <div class="row pt-3">
+        <div class="col-4">
+            <div class="table-wrapper-scroll-y scrollable-distance-table">
+                <table class="table table-distance">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="height: 40px">
+                            <td>
+                                @Html.LabelFor(modelItem => Model[i].Date, Model[i].Date, new {@class = "fz-22"})
+                                @Html.HiddenFor(modelItem => Model[i].Date, Model[i].Date)
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => Model[i].SleepMinutes, Model[i].SleepMinutes.ToString(), new {@class = "form-control sleep-control pull-right"})
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <div class="chart-background" style="height: 700px; width: 1200px;">
+                <canvas id="sleepChart"></canvas>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-extra-large chart-btn">Save</button>
+        </div>
+    </div>
+}
