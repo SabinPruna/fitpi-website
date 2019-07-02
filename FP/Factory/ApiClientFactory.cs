@@ -11,9 +11,10 @@ namespace FP.Factory
         private static readonly Uri RoomApiUrl;
         private static readonly Uri OpenWeatherUri;
         private static readonly Uri TimetableUri;
+        private static readonly Uri WorklogUri;
 
         private static readonly Lazy<ApiClient> RestClient = new Lazy<ApiClient>(
-            () => new ApiClient(FitbitApiUri, RoomApiUrl, OpenWeatherUri, TimetableUri),
+            () => new ApiClient(FitbitApiUri, RoomApiUrl, OpenWeatherUri, TimetableUri, WorklogUri),
             LazyThreadSafetyMode.ExecutionAndPublication);
 
         #region Constructors
@@ -24,6 +25,7 @@ namespace FP.Factory
             RoomApiUrl = new Uri(WebConfigurationManager.AppSettings["WeatherUrl"]);
             OpenWeatherUri = new Uri(WebConfigurationManager.AppSettings["OpenWeatherUrl"]);
             TimetableUri = new Uri(WebConfigurationManager.AppSettings["TimetableUrl"]);
+            WorklogUri = new Uri(WebConfigurationManager.AppSettings["WorklogUrl"]);
         }
 
         #endregion

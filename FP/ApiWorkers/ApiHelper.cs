@@ -13,12 +13,13 @@ namespace FP.ApiWorkers
 
         #region Constructors
 
-        public ApiClient(Uri baseEndpoint, Uri weatherEndpoint, Uri openWeatherEndpoint, Uri timetableBaseEndpoint)
+        public ApiClient(Uri baseEndpoint, Uri weatherEndpoint, Uri openWeatherEndpoint, Uri timetableBaseEndpoint, Uri worklogEndpoint)
         {
             BaseEndpoint = baseEndpoint ?? throw new ArgumentNullException(nameof(baseEndpoint));
             WeatherEndpoint = weatherEndpoint;
             OpenWeatherEndpoint = openWeatherEndpoint;
             TimetableEndpoint = timetableBaseEndpoint;
+            WorklogEndpoint = worklogEndpoint;
 
             _httpClient = new HttpClient();
         }
@@ -34,6 +35,8 @@ namespace FP.ApiWorkers
         private Uri OpenWeatherEndpoint { get; }
 
         private Uri TimetableEndpoint { get; }
+
+        public Uri WorklogEndpoint { get; set; }
 
         private static JsonSerializerSettings MicrosoftDateFormatSettings => new JsonSerializerSettings
         {
@@ -111,6 +114,12 @@ namespace FP.ApiWorkers
             return uriBuilder.Uri;
         }
 
+        private Uri CreateWorklogRequestUri(string relativePath, string queryString = "")
+        {
+            Uri endpoint = new Uri(WorklogEndpoint, relativePath);
+            UriBuilder uriBuilder = new UriBuilder(endpoint) { Query = queryString };
+            return uriBuilder.Uri;
+        }
 
         private HttpContent CreateHttpContent<T>(T content)
         {

@@ -12,5 +12,7 @@ namespace FP.Models
         public StatsModel Stats { get; set; }
 
         public WeatherViewModel Weather { get; set; }
+
+        public WorklogViewModel Worklog { get; set; }
     }
 }

@@ -44,9 +44,26 @@
 
 .mb-100 { margin-bottom: 100px; }
 
+.mt-100 {
+    margin-top: 100px;
+}
+
+
 .w-15 {
     margin-left: 120px;
     width: 15% !important;
+}
+
+.w-18 {
+    width: 18% !important;
+}
+
+.w-22 {
+    width: 22% !important;
+}
+
+.w-35 {
+    width: 22% !important;
 }
 
 .w-40-card { width: 40% !important; }
@@ -240,6 +257,19 @@ textarea { max-width: 280px; }
 
 .heartRate-control-progress { background-color: red; }
 
+.worklog-control {
+    color: #3182DE;
+}
+
+    .worklog-control:focus {
+        border-color: #3182DE;
+    }
+
+.worklog-control-progress {
+    background-color: #3182DE;
+}
+
+
 .fz-22 { font-size: 2.2rem; }
 .fz-11 {
     font-size: 1.1rem;
@@ -254,9 +284,9 @@ textarea { max-width: 280px; }
 
 /*--------------------------CALORIES-------------------------------*/
 
-.table-calories, .table-distance, .table-steps, .table-sleep, .table-heartRate, .table-floors, .table-weight { background: linear-gradient(#1e1e2f, #1e1e24); }
+.table-calories, .table-distance, .table-steps, .table-sleep, .table-heartRate, .table-floors, .table-weight, .table-worklog { background: linear-gradient(#1e1e2f, #1e1e24); }
 
-.scrollable-calories-table, .scrollable-minutes-table, .scrollable-steps-table, .scrollable-distance-table, .scrollable-floors-table, .scrollable-heartRate-table, .scrollable-weight-table {
+.scrollable-calories-table, .scrollable-minutes-table, .scrollable-steps-table, .scrollable-distance-table, .scrollable-floors-table, .scrollable-heartRate-table, .scrollable-weight-table, .scrollable-worklog-table  {
     height: 30%;
     overflow: auto;
     position: relative;
@@ -409,6 +439,28 @@ textarea { max-width: 280px; }
 
 
 
+.scrollable-worklog-table::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+.scrollable-worklog-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border: solid 3px transparent;
+    border-radius: 10px;
+}
+.scrollable-worklog-table::-webkit-scrollbar-thumb {
+    background-color: #3182DE;
+    border: solid 10px transparent;
+    border-radius: 10px;
+}
+
+
+.duration {
+    font-family: 'Seville-Bold';
+    font-size: 1.75rem;
+    text-align: right;
+    color: #3182DE;
+}
 
 table {
     border-collapse: collapse;
@@ -426,3 +478,7 @@ th, td { padding: 3em; }
 
 
 /*-------------------------------------------------------------------*/
+
+.modal-content {
+    background: #27293d;
+}

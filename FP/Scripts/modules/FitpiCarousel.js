@@ -135,4 +135,8 @@ $(function () {
     //    }
     //});
 
+    $("#addWorklogSubmitButton").click(function() {
+        $("#hiddenAddWorklogButton").submit();
+    })
+
 });

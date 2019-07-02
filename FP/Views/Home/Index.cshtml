@@ -22,7 +22,7 @@
                     @{ Html.RenderPartial("Partials/_Timetable"); }
                 </div>
                 <div class="carousel-item " data-interval="100000000">
-                    @{ Html.RenderPartial("Partials/_Worklog"); }
+                    @{ Html.RenderPartial("Partials/_Worklog", Model.Worklog); }
                 </div>
                 <div class="carousel-item " data-interval="100000000">
                     @{ Html.RenderPartial("Partials/_Weather", Model.Weather); }
